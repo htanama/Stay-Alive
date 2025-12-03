@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0fpjphe6dorx"]
+
+[ext_resource type="Script" uid="uid://clsyv8sv0apky" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://bk2lp8we8mg1r" path="res://Scenes/Player/CameraController.gd" id="2_a3d8c"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uvnfx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tugb3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tugb3"]
+albedo_color = Color(0.6826461, 0.3823559, 0.14881384, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_uvnfx")
+
+[node name="VisualBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.1398933)
+mesh = SubResource("CapsuleMesh_uvnfx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.1398933)
+shape = SubResource("CapsuleShape3D_tugb3")
+
+[node name="Arm" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44142294, 1.3719251, -0.28730774)
+material_override = SubResource("StandardMaterial3D_tugb3")
+size = Vector3(0.2, 0.2, 0.8)
+
+[node name="CameraMount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6135504, 0.025469303)
+script = ExtResource("2_a3d8c")
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
