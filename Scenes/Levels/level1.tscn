@@ -229,6 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.066778, 0.5447855, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.15613, 0.44252062, 0)
 
 [node name="Arena" type="CSGCombiner3D" parent="."]
+use_collision = true
 
 [node name="OutsideWall" type="CSGBox3D" parent="Arena"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2678223, 0)
