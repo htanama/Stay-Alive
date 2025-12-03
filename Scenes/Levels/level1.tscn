@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo0ka5yprssl5"]
+[gd_scene load_steps=12 format=3 uid="uid://bo0ka5yprssl5"]
 
+[ext_resource type="Script" uid="uid://celufi241qtuq" path="res://Scenes/Scripts/DayNightCycle.gd" id="1_1ukdm"]
 [ext_resource type="PackedScene" uid="uid://c0fpjphe6dorx" path="res://Scenes/Player/player.tscn" id="1_7u4ml"]
 [ext_resource type="PackedScene" uid="uid://m8o82cbmwyht" path="res://Scenes/Zombies/zombies.tscn" id="2_16p8j"]
 
@@ -20,10 +21,10 @@ glow_enabled = true
 albedo_color = Color(0, 0.23899674, 2.4065375e-08, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7u4ml"]
-size = Vector3(60, 0.5, 60)
+size = Vector3(100, 0.5, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_16p8j"]
-size = Vector3(60, 0.5, 60)
+size = Vector3(100, 0.5, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xrym"]
 albedo_color = Color(1, 1, 0, 1)
@@ -31,6 +32,11 @@ albedo_color = Color(1, 1, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u4ml"]
 
 [node name="Level1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("1_1ukdm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_16p8j")
@@ -46,10 +52,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_16p8j")
 metadata/_edit_group_ = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_7u4ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.763677, 0.4736113, 14.050298)
@@ -225,3 +227,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.066778, 0.5447855, 0)
 
 [node name="Zombies4" parent="." instance=ExtResource("2_16p8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.15613, 0.44252062, 0)
+
+[node name="Arena" type="CSGCombiner3D" parent="."]
+
+[node name="OutsideWall" type="CSGBox3D" parent="Arena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2678223, 0)
+size = Vector3(100, 11.535645, 100)
+
+[node name="GameArea" type="CSGBox3D" parent="Arena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.680908, 0)
+operation = 2
+size = Vector3(98, 16.362, 98)
