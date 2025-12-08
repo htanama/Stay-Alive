@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://8n8c4xnkljsk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tund"]
+albedo_color = Color(1, 0.501961, 0.239216, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7tund"]
+material = SubResource("StandardMaterial3D_7tund")
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ex2qh"]
+height = 1.5
+
+[node name="ZombieTest" type="CharacterBody3D"]
+
+[node name="Visual" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_7tund")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0196347, -0.00124419)
+shape = SubResource("CapsuleShape3D_ex2qh")

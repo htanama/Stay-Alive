@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo0ka5yprssl5"]
+[gd_scene load_steps=11 format=3 uid="uid://bo0ka5yprssl5"]
 
 [ext_resource type="Script" uid="uid://celufi241qtuq" path="res://Scenes/Scripts/DayNightCycle.gd" id="1_1ukdm"]
 [ext_resource type="PackedScene" uid="uid://c0fpjphe6dorx" path="res://Scenes/Player/player.tscn" id="1_7u4ml"]
-[ext_resource type="PackedScene" uid="uid://m8o82cbmwyht" path="res://Scenes/Zombies/zombies.tscn" id="2_16p8j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xc7r2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -215,18 +214,6 @@ size = Vector3(2.80548, 0.180115, 0.617401)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7304, 4.14373, -12.5082)
 use_collision = true
 size = Vector3(2.80548, 0.180115, 0.617401)
-
-[node name="Zombies" parent="." instance=ExtResource("2_16p8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9733, 0.5, 23.3396)
-
-[node name="Zombies2" parent="." instance=ExtResource("2_16p8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0023, 0.5, 23.3396)
-
-[node name="Zombies3" parent="." instance=ExtResource("2_16p8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0668, 0.544785, 0)
-
-[node name="Zombies4" parent="." instance=ExtResource("2_16p8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1561, 0.442521, 0)
 
 [node name="Arena" type="CSGCombiner3D" parent="."]
 use_collision = true
