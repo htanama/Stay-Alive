@@ -8,10 +8,10 @@
 height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tugb3"]
-height = 1.4781494
+height = 1.47815
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tugb3"]
-albedo_color = Color(0.6826461, 0.3823559, 0.14881384, 1)
+albedo_color = Color(0.682646, 0.382356, 0.148814, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_uvnfx")
@@ -25,12 +25,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506696, 0)
 shape = SubResource("CapsuleShape3D_tugb3")
 
 [node name="Arm" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44142294, 0.63622546, -0.28730774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441423, 0.636225, -0.287308)
 material_override = SubResource("StandardMaterial3D_tugb3")
 size = Vector3(0.2, 0.2, 0.8)
 
 [node name="CameraMount" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9016069, 0.025469303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901607, 0.0254693)
 script = ExtResource("2_a3d8c")
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]

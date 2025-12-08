@@ -11,7 +11,7 @@ height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tt1if"]
 radius = 0.4
-height = 1.5078125
+height = 1.50781
 
 [node name="Zombies" type="CharacterBody3D"]
 script = ExtResource("1_3vcnm")
@@ -26,9 +26,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_tt1if")
 
 [node name="LeftArm" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35595703, 0.7017146, -0.30147195)
-size = Vector3(0.15917969, 0.14642334, 0.6303711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355957, 0.701715, -0.301472)
+size = Vector3(0.15918, 0.146423, 0.630371)
 
 [node name="RightArm" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4138943, 0.7017146, -0.30147195)
-size = Vector3(0.15917969, 0.14642334, 0.6303711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413894, 0.701715, -0.301472)
+size = Vector3(0.15918, 0.146423, 0.630371)
