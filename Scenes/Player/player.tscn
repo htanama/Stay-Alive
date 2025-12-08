@@ -1,17 +1,94 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0fpjphe6dorx"]
+[gd_scene load_steps=18 format=3 uid="uid://c0fpjphe6dorx"]
 
 [ext_resource type="Script" uid="uid://clsyv8sv0apky" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://bk2lp8we8mg1r" path="res://Scenes/Player/CameraController.gd" id="2_a3d8c"]
 [ext_resource type="Script" uid="uid://c4myaf1vwaeml" path="res://Scenes/Scripts/reticle.gd" id="3_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://bl1267l5fbbgp" path="res://Assets/UI/heart.png" id="4_mtuoh"]
+[ext_resource type="Script" uid="uid://bte2ev0duq8xg" path="res://Scenes/Player/healthbar.gd" id="5_dd0ac"]
+[ext_resource type="Texture2D" uid="uid://bo7kq4tmmp1ik" path="res://Assets/UI/fork-spoon.png" id="5_htcer"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uvnfx"]
 height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tugb3"]
-height = 1.4781494
+height = 1.47815
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tugb3"]
-albedo_color = Color(0.6826461, 0.3823559, 0.14881384, 1)
+albedo_color = Color(0.682646, 0.382356, 0.148814, 1)
+
+[sub_resource type="Animation" id="Animation_dd0ac"]
+resource_name = "Intro"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.33333, 1.96667, 2.43333, 2.96667, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 30, 30), Vector3(0, 4.9, 4.91089), Vector3(0, 6, 4.891), Vector3(0, 3.92, 3.94059), Vector3(0, 3.06, 3.08911), Vector3(0, 1.96, 2), Vector3(0, 1.08, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.33333, 1.96667, 2.43333, 2.96667, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0), Vector3(-0.63879, -0.523599, 0), Vector3(-0.514872, 0.523599, 0), Vector3(-0.785398, 0, 0), Vector3(-0.785398, 0, 0), Vector3(-0.43277, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0u5uq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlvik"]
+_data = {
+&"Intro": SubResource("Animation_dd0ac"),
+&"RESET": SubResource("Animation_0u5uq")
+}
+
+[sub_resource type="Theme" id="Theme_xpcdj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpcdj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtuoh"]
+bg_color = Color(0.0445781, 1.29727e-08, 7.52043e-10, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dd0ac"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htcer"]
+bg_color = Color(0.742169, 0.392514, 0, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_uvnfx")
@@ -25,26 +102,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506696, 0)
 shape = SubResource("CapsuleShape3D_tugb3")
 
 [node name="Arm" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44142294, 0.63622546, -0.28730774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441423, 0.636225, -0.287308)
 material_override = SubResource("StandardMaterial3D_tugb3")
 size = Vector3(0.2, 0.2, 0.8)
 
 [node name="CameraMount" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9016069, 0.025469303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901607, 0.0254693)
 script = ExtResource("2_a3d8c")
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Control" type="Control" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraMount/Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_jlvik")
+}
+
+[node name="ReticleControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Reticle" type="CenterContainer" parent="Control"]
+[node name="Reticle" type="CenterContainer" parent="ReticleControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -59,5 +144,65 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_xpcdj")
 
-[node name="Line2D" type="Line2D" parent="Control/Reticle"]
+[node name="Line2D" type="Line2D" parent="ReticleControl/Reticle"]
 position = Vector2(-940, -520)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -124.0
+offset_right = 477.0
+grow_vertical = 0
+theme = SubResource("Theme_xpcdj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Container"]
+layout_mode = 2
+
+[node name="HeartImage" type="TextureRect" parent="CanvasLayer/Container/HBoxContainer"]
+material = SubResource("ShaderMaterial_xpcdj")
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("4_mtuoh")
+expand_mode = 3
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/Container/HBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_mtuoh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dd0ac")
+value = 100.0
+script = ExtResource("5_dd0ac")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Container"]
+layout_mode = 2
+
+[node name="ForkSpoonImg" type="TextureRect" parent="CanvasLayer/Container/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_htcer")
+expand_mode = 2
+
+[node name="HungerBar" type="ProgressBar" parent="CanvasLayer/Container/HBoxContainer2"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_htcer")
+value = 100.0
+
+[node name="DisplayText" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -23.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ATTACK"

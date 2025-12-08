@@ -1,12 +1,19 @@
 extends Node3D
 
+@onready var animation_player: AnimationPlayer = $Camera3D/AnimationPlayer
+
 const MOUSE_SENSITIVITY = 0.002
 # The maximum angle the camera can look up (90 degrees) or down (-90 degrees)
 const PITCH_LIMIT_DEGREES = 45.0 
 
+
 func _ready() -> void:
 	# Captures the mouse, hiding it and locking it to the center of the screen
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	animation_player.play("Intro")
+	
+	
 
 func _input(event: InputEvent) -> void:
 	# Only handle mouse movement events when the mouse is captured
