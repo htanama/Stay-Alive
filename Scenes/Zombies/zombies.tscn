@@ -13,7 +13,7 @@ height = 1.5
 radius = 0.4
 height = 1.50781
 
-[node name="Zombies" type="CharacterBody3D"]
+[node name="Zombies" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_3vcnm")
 
 [node name="Model" type="MeshInstance3D" parent="."]

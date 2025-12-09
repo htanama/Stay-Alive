@@ -92,8 +92,9 @@ bg_color = Color(1, 0, 0, 1)
 bg_color = Color(0.742169, 0.392514, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_0u5uq"]
+subpixel_positioning = 0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_uvnfx")
 
 [node name="VisualBody" type="MeshInstance3D" parent="."]
@@ -122,7 +123,7 @@ libraries = {
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraMount/CameraPlayer"]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -2)
 
 [node name="ReticleControl" type="Control" parent="."]
 layout_mode = 3
