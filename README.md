@@ -1,7 +1,7 @@
-# StayAliveGamePractice
+# Stay Alive 
 Godot version 4.5.1
 
-Stay Alive Prototype and Practice Project
+Stay Alive Prototype 
 
 
 Stay-Alive is an immersive survival adventure set in an apocalyptic world infested with zombies. The game offers a unique experience by combining elements of exploration, resource management, tactical combat and defense building. 
