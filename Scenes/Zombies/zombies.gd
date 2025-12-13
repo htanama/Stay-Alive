@@ -38,7 +38,9 @@ func is_nighttime() -> bool:
 
 	# Night is defined as time being after night_start OR before night_end
 	# (e.g., 0.75 to 1.0, and 0.0 to 0.25)
-	return current_time >= night_start or current_time < night_end
+	#return current_time >= night_start or current_time < night_end
+	
+	return true
 
 func _physics_process(delta: float) -> void:
 	if not player:

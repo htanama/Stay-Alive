@@ -1,6 +1,8 @@
 extends Node3D
 
-@onready var animation_player: AnimationPlayer = $Camera3D/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var raycast_3D : RayCast3D = $RayCast3D
+
 
 const MOUSE_SENSITIVITY = 0.002
 # The maximum angle the camera can look up (90 degrees) or down (-90 degrees)
@@ -12,7 +14,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	animation_player.play("Intro")
-	
 	
 
 func _input(event: InputEvent) -> void:

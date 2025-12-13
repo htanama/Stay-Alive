@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0fpjphe6dorx"]
+[gd_scene load_steps=20 format=3 uid="uid://c0fpjphe6dorx"]
 
 [ext_resource type="Script" uid="uid://clsyv8sv0apky" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://wdu7bljty1f2" path="res://Scenes/Player/arm.gd" id="2_0u5uq"]
 [ext_resource type="Script" uid="uid://bk2lp8we8mg1r" path="res://Scenes/Player/CameraController.gd" id="2_a3d8c"]
 [ext_resource type="Script" uid="uid://c4myaf1vwaeml" path="res://Scenes/Scripts/reticle.gd" id="3_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://bl1267l5fbbgp" path="res://Assets/UI/heart.png" id="4_mtuoh"]
@@ -90,7 +91,10 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htcer"]
 bg_color = Color(0.742169, 0.392514, 0, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="SystemFont" id="SystemFont_0u5uq"]
+subpixel_positioning = 0
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_uvnfx")
 
 [node name="VisualBody" type="MeshInstance3D" parent="."]
@@ -105,17 +109,23 @@ shape = SubResource("CapsuleShape3D_tugb3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441423, 0.636225, -0.287308)
 material_override = SubResource("StandardMaterial3D_tugb3")
 size = Vector3(0.2, 0.2, 0.8)
+script = ExtResource("2_0u5uq")
 
 [node name="CameraMount" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901607, 0.0254693)
+
+[node name="CameraPlayer" type="Camera3D" parent="CameraMount"]
 script = ExtResource("2_a3d8c")
 
-[node name="Camera3D" type="Camera3D" parent="CameraMount"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraMount/Camera3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraMount/CameraPlayer"]
+
 libraries = {
 &"": SubResource("AnimationLibrary_jlvik")
 }
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraMount/CameraPlayer"]
+target_position = Vector3(0, 0, -2)
 
 [node name="ReticleControl" type="Control" parent="."]
 layout_mode = 3
@@ -199,9 +209,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -23.0
-offset_right = 35.0
+offset_left = -225.0
+offset_top = -148.0
+offset_right = 257.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/mono_font = SubResource("SystemFont_0u5uq")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
 text = "ATTACK"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
