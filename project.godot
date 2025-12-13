@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Stay Alive"
 run/main_scene="uid://bo0ka5yprssl5"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="uid://cwdmeg2aqk2rj"
 config/icon="uid://bbm7embubv33m"
 
